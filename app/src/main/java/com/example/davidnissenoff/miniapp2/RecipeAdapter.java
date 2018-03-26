@@ -111,7 +111,7 @@ public class RecipeAdapter extends BaseAdapter{
         // prepTextView
         prepTextView.setText(recipe.prepTime);
         prepTextView.setTextColor(0xff000000);
-        prepTextView.setTextSize(16);
+        prepTextView.setTextSize(14);
 
         final Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -124,6 +124,7 @@ public class RecipeAdapter extends BaseAdapter{
                 NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext, "channel_ID");
                 builder.setSmallIcon(R.drawable.skillet);
                 builder.setContentTitle("Instructions");
+                builder.setStyle(new NotificationCompat.BigTextStyle().bigText(instruction));
                 builder.setContentText(instruction);
                 builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
                 builder.setContentIntent(pendingIntent);
