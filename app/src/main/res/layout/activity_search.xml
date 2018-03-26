@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/steak2"
+    >
+
+    <RelativeLayout
+        android:id="@+id/dietRestriction_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        >
+        <TextView
+            android:id="@+id/dietRestriction_textview"
+            android:fontFamily="@font/stuff"
+
+            android:textSize="30sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="80dp"
+            android:text="Diet Restriction"
+            android:textColor="#FFFFFF"
+
+            />
+
+        <Spinner
+            android:id="@+id/dietRestriction_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@android:drawable/btn_dropdown"
+            android:layout_toEndOf="@id/dietRestriction_textview"
+            android:spinnerMode="dropdown"
+            android:layout_marginTop="80dp"
+            android:layout_marginStart="30dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/serving_size_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dietRestriction_layout"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="30dp"
+        >
+
+        <TextView
+            android:id="@+id/serving_size_textview"
+            android:fontFamily="@font/stuff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Serving Restriction"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"/>
+
+        <Spinner
+            android:id="@+id/serving_size_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@android:drawable/btn_dropdown"
+            android:layout_toEndOf="@id/serving_size_textview"
+            android:spinnerMode="dropdown"
+            android:layout_marginStart="30dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/serving_size_layout"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="60dp"
+        >
+        <TextView
+            android:id="@+id/cooking_time_textview"
+            android:fontFamily="@font/stuff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Preparation Time"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"/>
+
+        <Spinner
+            android:id="@+id/cooking_time_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@android:drawable/btn_dropdown"
+            android:layout_toEndOf="@id/cooking_time_textview"
+            android:spinnerMode="dropdown"
+            android:layout_marginStart="30dp" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/search_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        android:onClick="onClick"
+        android:text="Search" />
+
+</RelativeLayout>
