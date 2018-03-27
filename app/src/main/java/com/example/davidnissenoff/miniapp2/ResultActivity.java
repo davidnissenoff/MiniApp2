@@ -75,6 +75,8 @@ public class ResultActivity extends AppCompatActivity {
                         searchList.add(list.get(i));
                     }
                 }
+            } else{
+                searchList.add(list.get(i));
             }
 
         }return searchList;
