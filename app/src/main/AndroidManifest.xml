@@ -19,7 +19,7 @@
         </activity>
         <activity
             android:name=".SearchActivity"
-            android:label="Search" >
+            android:label="Search Recipes" >
             <intent-filter>
                 <action android:name="com.iphonik.chameleon.SearchActvity" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -27,7 +27,7 @@
         </activity>
         <activity
             android:name=".ResultActivity"
-            android:label="Result" >
+            android:label="What would you like to cook?" >
             <intent-filter>
                 <action android:name="com.iphonik.chameleon.ResultActvity" />
                 <category android:name="android.intent.category.DEFAULT" />
