@@ -38,11 +38,11 @@ public class ResultActivity extends AppCompatActivity {
         } else if (prepTime.equals("Less than 1 hr")) {
             highTime = 59;
             lowTime = 0;
-        } else if (prepTime.equals("More than 1 hr")) {
+        } else if (prepTime.equals("1 hr or more")) {
             highTime = 480;
             lowTime = 60;
         } else {
-            highTime = 600;
+            highTime = 540;
             lowTime = 0;
         }
         String servings = this.getIntent().getExtras().getString("serving");
@@ -57,10 +57,10 @@ public class ResultActivity extends AppCompatActivity {
             lowServ = 7;
         } else if (servings.equals("Pick One")) {
             highServ = 75;
-            lowServ = 1;
+            lowServ = 0;
         } else {
             highServ = 100;
-            lowServ = 20;
+            lowServ = 10;
         }
 
         ArrayList<Integer> time = timeChange(list);
@@ -71,7 +71,7 @@ public class ResultActivity extends AppCompatActivity {
                     searchList.add(list.get(i));
 
                 } else {
-                    if ((highServ >= list.get(i).servings) && (lowServ <= list.get(i).servings) && (time.get(i) >= lowTime) && (time.get(i) <= highTime)) {
+                    if ((list.get(i).label.equals(tag))&& (highServ >= list.get(i).servings) && (lowServ <= list.get(i).servings) && (time.get(i) >= lowTime) && (time.get(i) <= highTime)) {
                         searchList.add(list.get(i));
                     }
                 }
