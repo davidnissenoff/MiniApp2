@@ -21,6 +21,23 @@ public class ResultActivity extends AppCompatActivity {
     private TextView mTextView;
     private ListView mListView;
     private ImageButton imageButton;
+    @Override
+    protected void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_listview);
+        ArrayList<Recipe> recipeArrayList = Recipe.getRecipesFromFile("recipes.json", this);
+        ArrayList<Recipe> searchList = searchList(recipeArrayList);
+        mContext = this;
+        RecipeAdapter adapter = new RecipeAdapter(this, searchList);
+        mTextView = findViewById(R.id.clicked_text_view);
+        mListView = findViewById(R.id.recipe_list_view);
+        imageButton = findViewById(R.id.start_cooking_image_button);
+        mTextView.setText("Here are " + searchList.size() + " recipes!");
+        mTextView.setTextSize(24);
+        mTextView.setTextColor(0xff000000);
+        mListView.setAdapter(adapter);
+
+    }
 
     private ArrayList<Recipe> searchList(ArrayList<Recipe> list) {
         ArrayList<Recipe> searchList = new ArrayList<>();
@@ -66,39 +83,27 @@ public class ResultActivity extends AppCompatActivity {
         ArrayList<Integer> time = timeChange(list);
         for (int i = 0; i < list.size(); i++) {
             if (!tag.equals("Pick One")) {
-                if ((list.get(i).label.equals(tag)) && (lowServ <= list.get(i).servings) && (highServ >= list.get(i).servings)
-                        && (time.get(i) >= lowTime) && (time.get(i) <= highTime)) {
+                if ((list.get(i).label.equals(tag)) && (lowServ <= list.get(i).servings) &&
+                        (highServ >= list.get(i).servings) && (time.get(i) <= highTime) && (time.get(i) >= highTime)) {
                     searchList.add(list.get(i));
-
-                } else {
-                    if ((list.get(i).label.equals(tag))&& (highServ >= list.get(i).servings) && (lowServ <= list.get(i).servings) && (time.get(i) >= lowTime) && (time.get(i) <= highTime)) {
-                        searchList.add(list.get(i));
-                    }
                 }
-            } else{
-                searchList.add(list.get(i));
+                if ((list.get(i).label.equals(tag)) && (lowServ <= list.get(i).servings) && (highServ >= list.get(i).servings) &&
+                        (time.get(i) <= highTime) && (time.get(i) >= lowTime)) {
+                    searchList.add(list.get(i));
+                }
+            } else {
+                if ((lowServ <= list.get(i).servings) && (highServ >= list.get(i).servings) &&
+                        (time.get(i) <= highTime) && (time.get(i) >= lowTime)) {
+                    searchList.add(list.get(i));
+                }
             }
+        }
 
-        }return searchList;
-
-    }
-    @Override
-    protected void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listview);
-        ArrayList<Recipe> recipeArrayList = Recipe.getRecipesFromFile("recipes.json", this);
-        ArrayList<Recipe> searchList = searchList(recipeArrayList);
-        mContext = this;
-        RecipeAdapter adapter = new RecipeAdapter(this, searchList);
-        mTextView = findViewById(R.id.clicked_text_view);
-        mListView = findViewById(R.id.recipe_list_view);
-        imageButton = findViewById(R.id.start_cooking_image_button);
-        mTextView.setText("Here are " + searchList.size() + " recipes!");
-        mTextView.setTextSize(24);
-        mTextView.setTextColor(0xff000000);
-        mListView.setAdapter(adapter);
+        return searchList;
 
     }
+
+
     private ArrayList<Integer> timeChange(ArrayList<Recipe> list){
         ArrayList<Integer> time = new ArrayList<>();
         for(int i = 0; i < list.size(); i++) {

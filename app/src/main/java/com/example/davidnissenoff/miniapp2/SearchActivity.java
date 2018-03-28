@@ -43,7 +43,7 @@ public class SearchActivity extends AppCompatActivity {
         String[] serving = new String[]{"Pick One", "Less than 4", "4-6", "7-9", "More than 10"};
         ArrayAdapter<String> servingAdpat = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, serving);
         mServingSpin.setAdapter(servingAdpat);
-        String[] time = new String[]{"Pick One", "30 min or less", "Less than 1 hr", "More than 1 hr"};
+        String[] time = new String[]{"Pick One", "30 min or less", "Less than 1 hr", "1 hr or more"};
         ArrayAdapter<String> timeAdapt = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, time);
         mPrepSpin.setAdapter(timeAdapt);
 

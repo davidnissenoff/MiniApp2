@@ -121,7 +121,7 @@ public class RecipeAdapter extends BaseAdapter{
             @Override
             public void onClick(View v){
                 String instruction = "Instructions to make " + recipe.title;
-                NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext, "channel_ID");
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext, "default");
                 builder.setSmallIcon(R.drawable.alarm);
                 builder.setContentTitle("Instructions");
                 builder.setStyle(new NotificationCompat.BigTextStyle().bigText(instruction));
